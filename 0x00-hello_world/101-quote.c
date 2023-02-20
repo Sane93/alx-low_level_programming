@@ -2,11 +2,10 @@
 #include <unistd.h>
 /**
  * main-  C program that prints piece of text
- * Return:0(Success)
+ * Return:1(Success)
  */
 int main(void)
 {
-	fput("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", stdout);
+	fputs("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", stdout);
 	return (1);
 }
-
