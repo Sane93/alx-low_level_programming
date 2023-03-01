@@ -4,30 +4,24 @@
 #include <stdlib.h>
 /**
  * rot13- function that encodes a string using rot13
- * @s: string to be encoded
+ * @str: string to be encoded
  * Return: encoded string
  */
-char *rot13(char *s)
+char *rot13(char *str)
 {
-	int i;
-	char c;
+	char *p = str;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (*p != '\0')
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
+		if (*p >= 'A' && *p <= 'Z')
 		{
-			c = s[i] + 13;
-			if (c > 'z')
-				c -= 26;
-			s[i] = c;
+			*p = (*p - 'A' + 13) % 26 + 'A';
 		}
-		else if (s[i] >= 'A' && s[i] <= 'Z')
+		else if (*p >= 'a' && *p <= 'z')
 		{
-			c = s[i] + 13;
-			if (c > 'Z')
-				c -= 26;
-			s[i] = c;
+			*p = (*p - 'a' + 13) % 26 + 'a';
 		}
+		p++;
 	}
-	return (s);
+	return (str);
 }
